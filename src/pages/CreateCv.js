@@ -22,6 +22,7 @@ const CreateCv = () => {
       navigate("/"); 
     }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSubmit = async (e) => {
@@ -31,7 +32,7 @@ const CreateCv = () => {
 
 
     try {
-      const response = await api.post(
+      await api.post(
         "/cv/createCv", 
         {
           nom,

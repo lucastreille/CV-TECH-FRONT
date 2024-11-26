@@ -72,6 +72,7 @@ const DetailsCv = () => {
 
     fetchCvDetails(); 
     fetchRecommendations();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, navigate]);
 
   return (

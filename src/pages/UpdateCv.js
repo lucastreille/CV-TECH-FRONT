@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import api from "../api/api"; // Assurez-vous que l'API est correctement configurée pour gérer les requêtes HTTP
+import api from "../api/api"; 
 
 const UpdateCv = () => {
-  const { id } = useParams(); // Récupère l'ID du CV depuis l'URL
+  const { id } = useParams();
   const navigate = useNavigate();
   
-  // Définir les états pour le formulaire
   const [cv, setCv] = useState({
     nom: "",
     prenom: "",
@@ -16,15 +15,14 @@ const UpdateCv = () => {
     is_visible: false
   });
   
-  const [error, setError] = useState(null); // Pour gérer les erreurs
-  const [loading, setLoading] = useState(false); // Pour afficher le chargement
+  const [error, setError] = useState(null); 
+  const [loading, setLoading] = useState(false);
 
-  // Récupérer les détails du CV lors du chargement du composant
   useEffect(() => {
     const fetchCvDetails = async () => {
       try {
         const response = await api.get(`/cv/details-cv/${id}`);
-        setCv(response.data.cv); // Remplir le formulaire avec les données récupérées
+        setCv(response.data.cv);
       } catch (err) {
         setError("Erreur lors du chargement du CV.");
       }
@@ -33,7 +31,6 @@ const UpdateCv = () => {
     fetchCvDetails();
   }, [id]);
 
-  // Gérer le changement des champs du formulaire
   const handleChange = (e) => {
     const { name, value } = e.target;
     setCv((prevState) => ({
@@ -42,7 +39,6 @@ const UpdateCv = () => {
     }));
   };
 
-  // Gérer la modification de la case à cocher pour `is_visible`
   const handleCheck = (e) => {
     setCv((prevState) => ({
       ...prevState,
@@ -55,7 +51,7 @@ const UpdateCv = () => {
     setLoading(true);
     
     try {
-      const response = await api.put(`/cv/updateCv/${id}`, cv);
+      await api.put(`/cv/updateCv/${id}`, cv);
       navigate(`/dashboard/mes-cv`); 
     } catch (err) {
       setError("Erreur lors de la mise à jour du CV.");

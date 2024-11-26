@@ -14,7 +14,7 @@ const Register = () => {
 
     try {
 
-      const response = await api.post("/auth/register", { username, email, password });
+      await api.post("/auth/register", { username, email, password });
       navigate("/login");
 
     } catch (err) {

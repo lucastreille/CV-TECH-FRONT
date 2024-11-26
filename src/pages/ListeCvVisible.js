@@ -37,13 +37,13 @@ const ListeCvVisible = () => {
     }
   };
 
-  const handleModifDetails = (cvId) => {
-    if (isLoggedIn) {
-      navigate(`/cv/updateCv/${cvId}`);
-    } else {
-      alert("Veuillez vous connecter pour modifier le cv");
-    }
-  }
+  // const handleModifDetails = (cvId) => {
+  //   if (isLoggedIn) {
+  //     navigate(`/cv/updateCv/${cvId}`);
+  //   } else {
+  //     alert("Veuillez vous connecter pour modifier le cv");
+  //   }
+  // }
 
   return (
     <div className="listeCvVisible-container">

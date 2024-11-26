@@ -1,0 +1,83 @@
+.listeCvVisible-container {
+    padding: 20px;
+    margin: auto;
+    max-width: 800px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    line-height: 1.6;
+  }
+  
+  .listeCvVisible-title {
+    text-align: center;
+    color: #343a40;
+    margin-bottom: 20px;
+  }
+  
+  .listeCvVisible-error {
+    color: #dc3545;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .listeCvVisible-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .listeCvVisible-item {
+    background: #f1f1f1;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .listeCvVisible-item-title {
+    margin: 0;
+    font-size: 18px;
+    color: #495057;
+  }
+  
+  .listeCvVisible-item-description {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #6c757d;
+  }
+  
+  .listeCvVisible-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .listeCvVisible-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .listeCvVisible-button:active {
+    background-color: #003f7f;
+  }
+  
+  .listeCvVisible-button:focus {
+    outline: none;
+  }
+  
+  .listeCvVisible-emptyMessage {
+    text-align: center;
+    font-size: 16px;
+    color: #6c757d;
+  }
+  

@@ -1,0 +1,16 @@
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .nav-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 20px;
+    background-color: #ecf0f1;
+  }
+  

@@ -37,6 +37,18 @@ const ListeCvVisible = () => {
     }
   };
 
+  const handleSearch = (e) => {
+    const search = e.target.value;
+    if (search === "") {
+      fetchVisibleCvs();
+    } else {
+      const filteredCvs = cvs.filter((cv) => {
+        return cv.nom.toLowerCase().includes(search.toLowerCase()) || cv.prenom.toLowerCase().includes(search.toLowerCase());
+      });
+      setCvs(filteredCvs);
+    }
+  }
+
   // const handleModifDetails = (cvId) => {
   //   if (isLoggedIn) {
   //     navigate(`/cv/updateCv/${cvId}`);
@@ -47,6 +59,7 @@ const ListeCvVisible = () => {
 
   return (
     <div className="listeCvVisible-container">
+      <input type="text" placeholder="Rechercher par nom ou prénom" className="listeCvVisible-search" onChange={handleSearch} />
       <h1 className="listeCvVisible-title">Liste des CVs</h1>
 
       {error && <div className="listeCvVisible-error">{error}</div>}

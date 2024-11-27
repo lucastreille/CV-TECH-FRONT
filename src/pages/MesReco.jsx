@@ -17,13 +17,13 @@ const MesReco = () => {
     }
 
     try {
-      const response = await api.get("/cv/list-recommandation-cv", {
+      const response = await api.get("/cv/get-recommendations", {
         headers: { Authorization: `Bearer ${token}` } 
       });
 
       console.log(response.data); 
 
-      setRecommendations(response.data.recommantation || []); 
+      setRecommendations(response.data.recommandations || []); 
       setLoading(false);
     } catch (err) {
       setError("Erreur lors du chargement des recommandations.");
@@ -45,7 +45,7 @@ const MesReco = () => {
     }
 
     try {
-      await api.delete(`/cv/delete-recommandation/${recommendationId}`, {
+      await api.delete(`/cv/delete-recommendation/${recommendationId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

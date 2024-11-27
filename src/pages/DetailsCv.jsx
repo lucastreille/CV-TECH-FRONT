@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../api/api";
-import '../css/DetailsCv.css';
+import "../css/DetailsCv.css";
 
 const DetailsCv = () => {
   const { id } = useParams(); // Récupère l'ID du CV depuis l'URL
@@ -16,9 +16,12 @@ const DetailsCv = () => {
     try {
       const response = await api.get(`/cv/details-cv/${id}`);
       setCv(response.data.cv);
-      setLoading(false); 
+      setLoading(false);
     } catch (err) {
-      setError("Erreur lors du chargement du CV : " + (err.response?.data?.message || err.message));
+      setError(
+        "Erreur lors du chargement du CV : " +
+          (err.response?.data?.message || err.message)
+      );
       setLoading(false);
     }
   };
@@ -27,20 +30,24 @@ const DetailsCv = () => {
     try {
       const response = await api.get(`/cv/list-recommandation-cv/${id}`);
 
-      const validRecommendations = response.data.recommantation?.filter(
-        (rec) => rec && rec.recommendation
-      ) || [];  
-      
-      setRecommendations(validRecommendations); 
+      const validRecommendations =
+        response.data.recommantation?.filter(
+          (rec) => rec && rec.recommendation
+        ) || [];
+
+      setRecommendations(validRecommendations);
     } catch (err) {
-      setError("Erreur lors du chargement des recommandations : " + (err.response?.data?.message || err.message));
+      setError(
+        "Erreur lors du chargement des recommandations : " +
+          (err.response?.data?.message || err.message)
+      );
     }
   };
 
   // Fonction pour ajouter une nouvelle recommandation
   const handleRecommendationSubmit = async (e) => {
     e.preventDefault();
-    
+
     const token = localStorage.getItem("authToken");
     if (!token) {
       alert("Vous devez être connecté pour envoyer une recommandation.");
@@ -53,34 +60,37 @@ const DetailsCv = () => {
         { idCv: id, recommendation: newRecommendation },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      
+
       const newRecommendationData = response.data.recommantation;
       if (newRecommendationData && newRecommendationData.recommendation) {
-        setRecommendations([newRecommendationData, ...recommendations]); 
+        setRecommendations([newRecommendationData, ...recommendations]);
       }
       setNewRecommendation("");
     } catch (err) {
-      setError("Erreur lors de l'envoi de la recommandation : " + (err.response?.data?.message || err.message));
+      setError(
+        "Erreur lors de l'envoi de la recommandation : " +
+          (err.response?.data?.message || err.message)
+      );
     }
   };
 
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     if (!token) {
-      navigate("/"); 
+      navigate("/");
     }
 
-    fetchCvDetails(); 
+    fetchCvDetails();
     fetchRecommendations();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, navigate]);
 
   return (
     <div className="detailsCv-container">
       <h1 className="detailsCv-title">Détails du CV</h1>
-  
+
       {error && <div className="detailsCv-error">{error}</div>}
-  
+
       {loading ? (
         <p className="detailsCv-loading">Chargement des détails...</p>
       ) : cv ? (
@@ -101,7 +111,7 @@ const DetailsCv = () => {
       ) : (
         <p className="detailsCv-notFound">Le CV demandé est introuvable.</p>
       )}
-  
+
       {/* Formulaire pour envoyer une recommandation */}
       <div className="detailsCv-recommendationForm">
         <h2 className="detailsCv-formTitle">Ajouter une Recommandation</h2>
@@ -119,7 +129,7 @@ const DetailsCv = () => {
           </button>
         </form>
       </div>
-  
+
       {/* Affichage des recommandations */}
       <div className="detailsCv-recommendations">
         <h2 className="detailsCv-recommendationsTitle">Recommandations</h2>
@@ -128,13 +138,17 @@ const DetailsCv = () => {
             {recommendations.map((rec, index) => (
               <li key={index} className="detailsCv-recommendationItem">
                 <p className="detailsCv-recommendationText">
-                  {rec.recommendation ? rec.recommendation : "Recommandation indisponible"}
+                  {rec.recommendation
+                    ? rec.recommendation
+                    : "Recommandation indisponible"}
                 </p>
               </li>
             ))}
           </ul>
         ) : (
-          <p className="detailsCv-noRecommendations">Aucune recommandation pour ce CV.</p>
+          <p className="detailsCv-noRecommendations">
+            Aucune recommandation pour ce CV.
+          </p>
         )}
       </div>
     </div>

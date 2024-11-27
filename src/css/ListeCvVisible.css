@@ -9,6 +9,18 @@
     background-color: #f8f9fa;
     line-height: 1.6;
   }
+
+  .listeCvVisible-search {
+    /* design searchbar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    padding: 10px;
+    width: 80%;
+  }
   
   .listeCvVisible-title {
     text-align: center;

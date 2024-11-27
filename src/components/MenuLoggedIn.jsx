@@ -22,7 +22,7 @@ const handleLogout = () => {
       <ul className="menu-list">
          <li><Link to="/" className="menu-item">Cv</Link></li>
         <li><Link to="/dashboard" className="menu-item">Dashboard</Link></li>
-        <li onClick={handleLogout} style={{ cursor: "pointer" }}>Déconnexion</li>
+        <li onClick={handleLogout}  style={{ cursor: "pointer", color: "white" }}>Déconnexion</li>
         </ul>
     </nav>
     </div>

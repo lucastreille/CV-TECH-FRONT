@@ -59,6 +59,7 @@ const DetailsCv = () => {
         setRecommendations([newRecommendationData, ...recommendations]); 
       }
       setNewRecommendation("");
+      fetchRecommendations();
     } catch (err) {
       setError("Erreur lors de l'envoi de la recommandation : " + (err.response?.data?.message || err.message));
     }

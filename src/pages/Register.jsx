@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api/api";
+import MenuLoggedOut from "../components/MenuLoggedOut";
 
 const Register = () => {
   const [username, setName] = useState("");
@@ -24,6 +25,8 @@ const Register = () => {
   };
 
   return (
+    <div>
+    { <MenuLoggedOut /> } 
 
     <div style={styles.container}>
 
@@ -71,7 +74,7 @@ const Register = () => {
       {error && <p style={{ color: "red" }}>{error}</p>}
 
     </div>
-
+    </div>
   );
 
 };

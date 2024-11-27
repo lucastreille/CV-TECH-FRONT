@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api/api";
+import MenuLoggedOut from "../components/MenuLoggedOut";
 
 const Login = () => {
 
@@ -31,6 +32,7 @@ const Login = () => {
   return (
     
     <div>
+      <MenuLoggedOut />
 
       <h1>Connexion</h1>
 

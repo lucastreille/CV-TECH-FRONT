@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api/api";
 import '../css/ListeCvVisible.css';
+import MenuLoggedOut from "../components/MenuLoggedOut";
+import MenuLoggedIn from "../components/MenuLoggedIn";
 
 const ListeCvVisible = () => {
   const [cvs, setCvs] = useState([]);
@@ -46,6 +48,11 @@ const ListeCvVisible = () => {
   // }
 
   return (
+    <div>
+
+    { !isLoggedIn && <MenuLoggedOut /> } 
+    { isLoggedIn && <MenuLoggedIn /> } 
+
     <div className="listeCvVisible-container">
       <h1 className="listeCvVisible-title">Liste des CVs</h1>
 
@@ -83,6 +90,8 @@ const ListeCvVisible = () => {
         )}
       </ul>
     </div>
+    </div>
+
   );
 };
 

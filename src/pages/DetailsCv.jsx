@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../api/api";
 import '../css/DetailsCv.css';
+import MenuLoggedIn from "../components/MenuLoggedIn";
 
 const DetailsCv = () => {
   const { id } = useParams(); // Récupère l'ID du CV depuis l'URL
@@ -59,6 +60,7 @@ const DetailsCv = () => {
         setRecommendations([newRecommendationData, ...recommendations]); 
       }
       setNewRecommendation("");
+      fetchRecommendations();
     } catch (err) {
       setError("Erreur lors de l'envoi de la recommandation : " + (err.response?.data?.message || err.message));
     }
@@ -76,6 +78,8 @@ const DetailsCv = () => {
   }, [id, navigate]);
 
   return (
+    <div>
+      <MenuLoggedIn/>
     <div className="detailsCv-container">
       <h1 className="detailsCv-title">Détails du CV</h1>
   
@@ -137,6 +141,7 @@ const DetailsCv = () => {
           <p className="detailsCv-noRecommendations">Aucune recommandation pour ce CV.</p>
         )}
       </div>
+    </div>
     </div>
   );  
 };

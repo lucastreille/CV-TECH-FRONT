@@ -1,0 +1,170 @@
+/* Conteneur principal */
+.create-cv-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    font-family: "Roboto", Arial, sans-serif;
+    border: 1px solid #ddd;
+  }
+  
+  /* Titre */
+  .create-cv-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 25px;
+  }
+  
+  /* Gestion des erreurs */
+  .create-cv-error {
+    color: #e63946;
+    background-color: #fdecec;
+    padding: 10px;
+    border: 1px solid #e63946;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Formulaire */
+  .create-cv-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Groupe de champs de formulaire */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .form-label {
+    font-weight: bold;
+    font-size: 15px;
+    color: #555;
+  }
+  
+  /* Input et textarea */
+  .form-input,
+  .form-textarea {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 16px;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .form-input:focus,
+  .form-textarea:focus {
+    border-color: #5c6bc0;
+    box-shadow: 0 0 5px rgba(92, 107, 192, 0.4);
+  }
+  
+  /* Textarea spécifique */
+  .form-textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  /* Gestion des sections d'expérience */
+  .experience-section {
+    margin-bottom: 20px;
+  }
+  
+  .experience-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .experience-item .form-input {
+    flex: 1;
+  }
+  
+  /* Boutons */
+  .btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .btn-add {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .btn-remove {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .btn-submit {
+    width: 100%;
+    background-color: #3f51b5;
+    color: white;
+    font-size: 18px;
+    padding: 12px;
+    border-radius: 8px;
+  }
+  
+  .btn-submit:disabled {
+    background-color: #b0bec5;
+    cursor: not-allowed;
+  }
+  
+  .btn:hover {
+    transform: scale(1.03);
+  }
+  
+  .btn-add:hover {
+    background-color: #43a047;
+  }
+  
+  .btn-remove:hover {
+    background-color: #e53935;
+  }
+  
+  .btn-submit:hover {
+    background-color: #3949ab;
+  }
+  
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  .form-checkbox {
+    margin-right: 10px;
+    transform: scale(1.2);
+    accent-color: #3f51b5;
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .create-cv-container {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  

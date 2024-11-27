@@ -11,7 +11,6 @@ const MenuLoggedIn = () => {
 const handleLogout = () => {
     localStorage.removeItem("authToken");
     navigate("/");
-    window.location.href('/')
   };
 
 

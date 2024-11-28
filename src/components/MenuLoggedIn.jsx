@@ -10,7 +10,7 @@ const MenuLoggedIn = () => {
 
 const handleLogout = () => {
     localStorage.removeItem("authToken");
-    navigate("/");
+    navigate("/login");
   };
 
 

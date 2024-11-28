@@ -1,13 +1,12 @@
 # Générateur de CV
 
-## Description  
-Plateforme en ligne permettant de créer, gérer et consulter des CV, avec des fonctionnalités sociales telles que les recommandations entre utilisateurs.
-
 ## Membres du groupe
 - Mathis BOULAIS
 - Asâad MEHIDI
 - Lucas TREILLE
 
+## Description  
+Plateforme en ligne permettant de créer, gérer et consulter des CV, avec des fonctionnalités sociales telles que les recommandations entre utilisateurs.
 
 ## Fonctionnalités disponibles  
 

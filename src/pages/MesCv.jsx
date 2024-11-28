@@ -51,15 +51,29 @@ const MesCv = () => {
       {cvs.length === 0 ? (
         <p>Vous n'avez aucun CV pour le moment. Créez-en un pour commencer !</p>
       ) : (
-        <div className="cv-list">
+        <div className="cv-list" style={{ marginTop: "70rem" }}>
           {cvs.map((cv) => (
             <div key={cv._id} className="cv-card">
               <h2>
                 {cv.nom} {cv.prenom}
               </h2>
               <p><strong>Description :</strong> {cv.description}</p>
-              <p><strong>Expérience Pédagogique :</strong> {cv.experiencePedagogique}</p>
-              <p><strong>Expérience Professionnelle :</strong> {cv.experiencePro}</p>
+              <div>
+                <p><strong>Expérience Pédagogique :</strong></p>
+                <ul>
+                  {cv.experiencePedagogique.map((exp, index) => (
+                    <li key={index}>{exp}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p><strong>Expérience Professionnelle :</strong></p>
+                <ul>
+                  {cv.experiencePro.map((exp, index) => (
+                    <li key={index}>{exp}</li>
+                  ))}
+                </ul>
+              </div>
               <p><strong>Visible :</strong> {cv.is_visible ? "Oui" : "Non"}</p>
               <button
                 onClick={() => handleEditCv(cv._id)}

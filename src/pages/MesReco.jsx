@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api/api";
+import "../css/MesReco.css";
 
 const MesReco = () => {
   const [recommendations, setRecommendations] = useState([]);
@@ -18,12 +19,12 @@ const MesReco = () => {
 
     try {
       const response = await api.get("/cv/get-recommendations", {
-        headers: { Authorization: `Bearer ${token}` } 
+        headers: { Authorization: `Bearer ${token}` },
       });
 
-      console.log(response.data); 
+      console.log(response.data);
 
-      setRecommendations(response.data.recommandations || []); 
+      setRecommendations(response.data.recommandations || []);
       setLoading(false);
     } catch (err) {
       setError("Erreur lors du chargement des recommandations.");
@@ -46,10 +47,12 @@ const MesReco = () => {
 
     try {
       await api.delete(`/cv/delete-recommendation/${recommendationId}`, {
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { Authorization: `Bearer ${token}` },
       });
 
-      setRecommendations(recommendations.filter(rec => rec._id !== recommendationId));
+      setRecommendations(
+        recommendations.filter((rec) => rec._id !== recommendationId)
+      );
     } catch (err) {
       setError("Erreur lors de la suppression de la recommandation.");
       console.error(err);
@@ -57,27 +60,35 @@ const MesReco = () => {
   };
 
   return (
-    <div>
-      <h1>Mes Recommandations</h1>
-      {loading && <p>Chargement...</p>}
-      {error && <p>{error}</p>}
-      
+    <div className="recommendations-container">
+      <h1 className="recommendations-title">Mes Recommandations</h1>
+      {loading && <p className="recommendations-loading">Chargement...</p>}
+      {error && <p className="recommendations-error">{error}</p>}
+
       {recommendations.length > 0 ? (
-        <ul>
+        <ul className="recommendations-list">
           {recommendations.map((rec) => (
-            <li key={rec._id}>
-              <p>{rec.recommendation}</p>
-              <button onClick={() => handleDeleteRecommendation(rec._id)}>
-                Supprimer
-              </button>
-              <button onClick={() => navigate(`/cv/details/${rec.idCv}`)}>
-                Voir le CV
-              </button>
+            <li key={rec._id} className="recommendation-item">
+              <p className="recommendation-text">{rec.recommendation}</p>
+              <div className="recommendation-actions">
+                <button
+                  className="recommendation-delete-btn"
+                  onClick={() => handleDeleteRecommendation(rec._id)}
+                >
+                  Supprimer
+                </button>
+                <button
+                  className="recommendation-view-cv-btn"
+                  onClick={() => navigate(`/cv/details/${rec.idCv}`)}
+                >
+                  Voir le CV
+                </button>
+              </div>
             </li>
           ))}
         </ul>
       ) : (
-        <p>Aucune recommandation trouvée.</p>
+        <p className="recommendations-empty">Aucune recommandation trouvée.</p>
       )}
     </div>
   );

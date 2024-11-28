@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api/api";
+import "../css/MesCv.css";
 
 const MesCv = () => {
   const [cvs, setCvs] = useState([]);
@@ -46,46 +47,41 @@ const MesCv = () => {
   }
 
   return (
-    <div className="mes-cv-container">
-      <h1>Mes CV</h1>
-      {cvs.length === 0 ? (
-        <p>Vous n'avez aucun CV pour le moment. Créez-en un pour commencer !</p>
-      ) : (
-        <div className="cv-list" style={{ marginTop: "70rem" }}>
-          {cvs.map((cv) => (
-            <div key={cv._id} className="cv-card">
-              <h2>
-                {cv.nom} {cv.prenom}
-              </h2>
-              <p><strong>Description :</strong> {cv.description}</p>
-              <div>
-                <p><strong>Expérience Pédagogique :</strong></p>
-                <ul>
-                  {cv.experiencePedagogique.map((exp, index) => (
-                    <li key={index}>{exp}</li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <p><strong>Expérience Professionnelle :</strong></p>
-                <ul>
-                  {cv.experiencePro.map((exp, index) => (
-                    <li key={index}>{exp}</li>
-                  ))}
-                </ul>
-              </div>
-              <p><strong>Visible :</strong> {cv.is_visible ? "Oui" : "Non"}</p>
-              <button
-                onClick={() => handleEditCv(cv._id)}
-                className="edit-cv-button"
-              >
-                Modifier
-              </button>
+    <div className="mescv-container">
+    <h1 className="mescv-title">Mes CV</h1>
+    {cvs.length === 0 ? (
+      <p className="mescv-empty">Vous n'avez aucun CV pour le moment. Créez-en un pour commencer !</p>
+    ) : (
+      <div className="mescv-grid">
+        {cvs.map((cv) => (
+          <div key={cv._id} className="mescv-card">
+            <h2 className="mescv-card-title">{cv.nom} {cv.prenom}</h2>
+            <p className="mescv-description">{cv.description}</p>
+            <div className="mescv-section">
+              <h3 className="mescv-section-title">Expérience Pédagogique</h3>
+              <ul className="mescv-list">
+                {cv.experiencePedagogique.map((exp, index) => (
+                  <li key={index} className="mescv-list-item">{exp}</li>
+                ))}
+              </ul>
             </div>
-          ))}
-        </div>
-      )}
-    </div>
+            <div className="mescv-section">
+              <h3 className="mescv-section-title">Expérience Professionnelle</h3>
+              <ul className="mescv-list">
+                {cv.experiencePro.map((exp, index) => (
+                  <li key={index} className="mescv-list-item">{exp}</li>
+                ))}
+              </ul>
+            </div>
+            <p className="mescv-visibility">Visible : {cv.is_visible ? "Oui" : "Non"}</p>
+            <button onClick={() => handleEditCv(cv._id)} className="mescv-edit-button">
+              Modifier
+            </button>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
   );
 };
 

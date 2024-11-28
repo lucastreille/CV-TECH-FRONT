@@ -1,0 +1,111 @@
+.recommendations-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 20px;
+  }
+  
+  .recommendations-title {
+    color: #2c3e50;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .recommendations-loading,
+  .recommendations-error,
+  .recommendations-empty {
+    text-align: center;
+    color: #34495e;
+    font-size: 1.2em;
+    font-style: italic;
+    margin: 20px 0;
+  }
+  
+  .recommendations-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .recommendation-item {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .recommendation-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .recommendation-text {
+    margin-bottom: 20px;
+    color: #34495e;
+    font-size: 1.1em;
+    line-height: 1.6;
+  }
+  
+  .recommendation-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+  }
+  
+  .recommendation-delete-btn,
+  .recommendation-view-cv-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .recommendation-delete-btn {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .recommendation-delete-btn:hover {
+    background-color: #c0392b;
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+  }
+  
+  .recommendation-view-cv-btn {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  .recommendation-view-cv-btn:hover {
+    background-color: #2980b9;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+  }
+  
+  @media (max-width: 768px) {
+    .recommendations-container {
+      padding: 20px;
+    }
+  
+    .recommendations-title {
+      font-size: 2em;
+    }
+  
+    .recommendation-actions {
+      flex-direction: column;
+    }
+  
+    .recommendation-delete-btn,
+    .recommendation-view-cv-btn {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }

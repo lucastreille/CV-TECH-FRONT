@@ -95,12 +95,22 @@ const DetailsCv = () => {
           <p className="detailsCv-description">
             <strong>Description:</strong> {cv.description}
           </p>
-          <p className="detailsCv-experience">
-            <strong>Expérience Pédagogique:</strong> {cv.experiencePedagogique}
-          </p>
-          <p className="detailsCv-experience">
-            <strong>Expérience Professionnelle:</strong> {cv.experiencePro}
-          </p>
+          <div className="detailsCv-experience">
+          <strong>Expérience Pédagogique:</strong>
+          <ul>
+            {cv.experiencePedagogique.map((exp, index) => (
+            <li key={index}>{exp}</li>
+            ))}
+          </ul>
+          </div>
+          <div className="detailsCv-experience">
+          <strong>Expérience Professionnelle:</strong>
+          <ul>
+            {cv.experiencePro.map((exp, index) => (
+            <li key={index}>{exp}</li>
+            ))}
+          </ul>
+          </div>
         </div>
       ) : (
         <p className="detailsCv-notFound">Le CV demandé est introuvable.</p>

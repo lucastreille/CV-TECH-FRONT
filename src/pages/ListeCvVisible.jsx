@@ -79,13 +79,22 @@ const ListeCvVisible = () => {
                 {cv.nom} {cv.prenom}
               </h3>
               <p className="listeCvVisible-item-description">{cv.description}</p>
-              <p className="listeCvVisible-item-description">
-                Expérience Pédagogique: {cv.experiencePedagogique}
-              </p>
-              <p className="listeCvVisible-item-description">
-                Expérience Professionnelle: {cv.experiencePro}
-              </p>
-
+                <div className="listeCvVisible-item-description">
+                <strong>Expérience Pédagogique:</strong>
+                <ul>
+                  {cv.experiencePedagogique.map((exp, index) => (
+                  <li key={index}>{exp}</li>
+                  ))}
+                </ul>
+                </div>
+                <div className="listeCvVisible-item-description">
+                <strong>Expérience Professionnelle:</strong>
+                <ul>
+                  {cv.experiencePro.map((exp, index) => (
+                  <li key={index}>{exp}</li>
+                  ))}
+                </ul>
+                </div>
               {isLoggedIn && (
                 <button
                   className="listeCvVisible-button"

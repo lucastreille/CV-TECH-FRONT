@@ -1,9 +1,10 @@
 .mescv-container {
-    max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
     font-family: 'Arial', sans-serif;
   }
+
+  
   
   .mescv-title {
     font-size: 2.5em;
@@ -21,10 +22,9 @@
   .mescv-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    margin-top: 115rem;
     gap: 30px;
   }
-  
+
   .mescv-card {
     background-color: #fff;
     border-radius: 8px;

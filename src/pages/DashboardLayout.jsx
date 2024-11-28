@@ -13,8 +13,10 @@ const DashboardLayout = () => {
   return (
     <div className="dashboard-layout">
       <div className="sidebar">
-        <h2>Dashboard</h2>
+        <h2 onClick={() => navigate("/")}>Dashboard</h2>
         <ul>
+          <li onClick={() => navigate("/")}>{"<-"} Revenir à l'accueil</li>
+          <div style={{ height: '25px' }} />
           <li onClick={() => navigate("/dashboard")}>Accueil</li>
           <li onClick={() => navigate("/dashboard/mes-cv")}>Mes CV</li>
           <li onClick={() => navigate("/dashboard/create-cv")}>Créer un CV</li>
